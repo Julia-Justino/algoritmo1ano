@@ -14,3 +14,8 @@ assim:<br><br>
 "Olá, NOME. Sua corrida, será na bandeira X, percorrerá Y km e o total da corrida será de Z"</li><br>
 <li>e.1) Siga a tabela abaixo para calcular o adicional por bandeira e horário:</li></ul><br>
 <span>Obs: O valor nominal da corrida é de R$ 1,25 por km;</span>
+<br>
+<br>
+<img src="tabela1.png">
+<br>
+<img src="tabela2.png">

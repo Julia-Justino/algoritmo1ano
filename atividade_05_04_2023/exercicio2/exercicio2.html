@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        input {
+            width: 42%;
+            border-radius: 15px;
+            margin-bottom: 1vh;
+            text-align: center;
+        }
+
+        body {
+            text-align: justify;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 12pt;
+            line-height: 30px;
+            width: 80%;
+            margin: auto;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="exercicio">
+        <p>20.Poupança. Marco Nomico é uma pessoa que sempre faz o seu planejamento financeiro,
+            agora ele decidir fazer suas economias em um Banco de Investimentos onde sua conta rende
+            mais do que a poupança. Faça um programa para ajudá-lo a conferir a evolução da sua
+            economia.</p>
+        <ul>
+            <li>a. Receba o valor que ele já tem guardado</li>
+            <li>b. Receba o valor que será poupado a cada mês</li>
+            <li>c. Receba a quantidade de meses</li>
+            <li>d. Receba percentual de juros mensal</li>
+            <li>e. Tenha um botão “Vamos Poupar” que quando clicado irá validar os campos de
+                entrada. Caso exista erro(s), emita uma mensagem explicativa para cada campo que estiver
+                errado e não siga em frente.
+                <ul>
+                    <li> i.Guardado pode ser qualquer valor</li>
+                    <li>ii.Poupado tem que ser maior que zero</li>
+                    <li> iii.Meses tem que ser maior que 10.</li>
+                    <li> iv.Percentual de juros tem que estar entre meio e dois.</li>
+                </ul>
+            </li>
+            <li> f. Emitir a mensagem abaixo tantas vezes quanto a quantidade de meses.</li>
+
+            <p> “Mês X - saldo inicial = R$999,99 saldo final = R$888,88”, onde:</p>
+            <ul>
+                <li> - X é o número do mês que ele está poupando</li>
+                <li>- Saldo inicial é o saldo final da linha anterior (se for o 1º mês será o guardado do item a)</li>
+                <li>- Saldo final é o saldo inicial adicionado com os juros e o valor poupado do mês</li>
+                <li>- Para calcular os juros multiplique o saldo inicial pelo percentual de juros e divida por 100.</li>
+            </ul>
+            <li> g. Ao final emitir a mensagem abaixo sem apagar as mensagens anterior.</li>
+            <p> “Você começou com R$ 9999,99
+                Depositou R$ 8888,88 #seliga isto é a somatória dos valores poupados
+                E agora você tem: R$ 7777,77 #seliga isto o último saldo final
+                Neste período sua conta rendeu R$ 6666,66 #seliga isto é a somatória dos juros
+                Sua rentabilidade foi de 5,55%
+                #se liga isto é o rendimento dividido pela soma dos depósitos com o quanto começou, isso tudo
+                multiplicado por 100.
+            </p>
+        </ul>
+    </div>
+    <div id="form">
+        <h1>Economia</h1>
+        <span>Valor já guardado:</span><input type="text" id="inp_valorGuardado" placeholder="valor já guardado"><br>
+        <span>Valor poupado:</span><input type="text" id="inp_poupado"
+            placeholder="valor que será poupado a cada mês"><br>
+        <span>Quantos meses:</span><input type="text" id="inp_meses" placeholder="quantidade de meses:"><br>
+        <span>Percentual de juros</span><input type="text" id="inp_juros" placeholder="percentual de juros mensal"><br>
+        <button onclick="validar()">Vamos Poupar</button>
+        <button onclick="limpar()">Limpar form</button>
+    </div>
+    <div id="msg"></div>
+</body>
+
+</html>
+<script>
+    var i = 0;
+    var guardado = "";
+    var poupanca = "";
+    var meses = "";
+    var juros = "";
+
+    function validar() {
+        guardado = Number(inp_valorGuardado.value);
+        poupanca = Number(inp_poupado.value);
+        meses = Number(inp_meses.value);
+        juros = Number(inp_juros.value);
+
+        if (poupanca < 0) {
+            alert("Digite o valor poupado corretamente, não é permitido números negativos neste campo");
+            location.reload();
+        } else if (inp_poupado.value == "") {
+            alert("Preencha o campo valor poupado");
+            location.reload();
+        } else if (inp_valorGuardado.value == "") {
+            alert("Preencha o campo valor guardado");
+            location.reload();
+        }
+        else if (meses < 10) {
+            alert("Digite a quantidade de meses corretamente, não é permitido números MENORES do que 10 neste campo");
+            location.reload();
+        } else if (inp_meses.value == "") {
+            alert("Preencha o campo meses");
+            location.reload();
+        } else if (inp_juros.value == "") {
+            alert("Preencha o campo juros");
+            location.reload();
+        } else if (juros < 0.5 || juros > 2.5) {
+            alert("Preencha o campo percentual de juros mensal, percentual de juros tem que estar entre meio e dois.");
+            location.reload();
+        }
+        calculo();
+    }
+
+    var valorInicial = "";
+
+    var valorFinal1 = "";
+    var valorFinal2 = "";
+    var saldoFinal = "";
+    function calculo() {
+        while (i <= meses) {
+            if (i < 1) {
+
+                msg.innerHTML += `Mês ${i} - saldo inicial  = R$ ${guardado} saldo final = R$${valorFinal1 = guardado + (guardado * (juros / 100))}<br> `
+                i++;
+            } else {
+                msg.innerHTML += `Mês ${i} - saldo inicial = R$:${valorInicial = (poupanca * i) + guardado}  saldo final = R$${valorFinal2 = valorInicial + (valorInicial * (juros / 100))}
+            <br>`;
+                console.log(valorInicial);
+                i++
+            }
+
+            // Mês X - saldo inicial = R$999,99 saldo final = R$888,88
+        }
+        /* let jurosAplicados = (valorInicial * juros)/100;
+        let jurosMes1 = (guardado * juros)/100;
+        let descontoJuros = valorInicial*jurosAplicados;
+        let valorFinal = valorInicial - descontoJuros; */
+
+        /*“Você começou com R$ 9999,99 Depositou R$ 8888,88 #seliga isto é a somatória dos valores poupados E agora você tem: R$ 7777,77 #seliga isto o último saldo final Neste período sua conta rendeu R$ 6666,66 #seliga isto é a somatória dos juros Sua rentabilidade foi de 5,55% */
+        msg.innerHTML += `<br> Você começou com R$:${inp_valorGuardado.value} Depositou R$:${(poupanca * meses)} E agora você tem: R$:${valorFinal2} Neste período sua conta rendeu ${(i * juros / 100).toFixed(2)} Sua rentabilidade foi de ${juros * meses}% `
+
+    }
+
+    function limpar() {
+        location.reload();
+    }
+
+
+</script>

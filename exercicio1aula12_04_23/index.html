@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="form">
+        <span> quantidade de semanas: </span><input type="text" id="inp_qtdSemanas"><br>
+        <span> quantidade de dias da semana: </span><input type="text" id="inp_qtdDiaSemanas"><br>
+        <span> horas semanais: </span><input type="text" id="inp_horaSemanas"><br>
+        <button onclick="validar()">resultado</button>
+    </div>
+    <div id="respostaForm"></div>
+</body>
+
+</html>
+<script>
+    var qtdSemanas = "";
+    var Dias_semanas = "";
+    var horas_semanas = "";
+    function validar() {
+        qtdSemanas = Number(inp_qtdSemanas.value);
+        Dias_semanas = Number(inp_qtdDiaSemanas.value);
+        horas_semanas = Number(inp_horaSemanas.value);
+
+        if (qtdSemanas == "") {
+            alert("Preencha o campo semanas!");
+        }
+        else if (qtdSemanas < 5 || qtdSemanas > 26) {
+            alert(`Escolha um número entre 4 e 26`);
+        }
+        if (Dias_semanas == "") {
+            alert("Preencha o campo dias da semana")
+        } else if (Dias_semanas > 6) {
+            alert("Opá a semana tem no máximo 6 dias úteis");
+        } else if (Dias_semanas < 1) {
+            alert(`Informe corretamente a quantidade de dias da semana`);
+        }
+        if (horas_semanas == "") {
+            alert("Preencha o campo hora!")
+        } else if (horas_semanas < 1 || horas_semanas > 6) {
+            alert("Quantidade de horas incompatível com a quantidade de dias semanais de manutenção")
+        }
+        resultadoForm();
+    }
+    function resultadoForm() {
+        let iSemana =1;
+        while (iSemana <= qtdSemanas) {
+            respostaForm.innerHTML += `<p>${iSemana} Semana</p>`;
+            iSemana ++;
+        }
+    }
+</script>

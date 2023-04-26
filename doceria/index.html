@@ -31,16 +31,16 @@
     -->
     <h1>Doceria</h1>
     <div id="form">
-        <spam>Macarons: </spam><input type="text" id="inp_qtdMacarons" placeholder="Digite a quantidade de macarons">
+        <spam id="inp_macarons">Macarons: </spam><input type="text" id="inp_qtdMacarons" placeholder="Digite a quantidade de macarons">
         <spam class="valor">Valor do Macarons</spam><input type="text" id="inp_valorMacarons" placeholder="Digite o valor unitário do macaron">
         <br>
-        <spam>Brigadeiros: </spam><input type="text" id="inp_qtdBrigadeiro" placeholder="Digite a quantidade de Brigadeiros">
+        <spam id="inp_brigadeiro">Brigadeiros: </spam><input type="text" id="inp_qtdBrigadeiro" placeholder="Digite a quantidade de Brigadeiros">
         <spam class="valor">Valor do Brigadeiro</spam><input type="text" id="inp_valorBrigadeiro" placeholder="Digite o valor unitário do Brigadeiro.">
         <br>
-        <spam>Cupcakes:</spam><input type="text" id="inp_qtdCupcake" placeholder="Digite a quantidade de Cupcakes">
+        <spam id="inp_cupcake">Cupcakes:</spam><input type="text" id="inp_qtdCupcake" placeholder="Digite a quantidade de Cupcakes">
         <spam class="valor">Valor do Cupcake</spam><input type="text" id="inp_valorCupcake" placeholder="Digite o valor unitário do Cupcake.">
         <br>
-        <spam>Cheesecakes: </spam><input type="text" id="inp_qtdCheesecakes" placeholder="Digite a quantidade de Cheesecakes">
+        <spam id="inp_cheesecakes">Cheesecakes: </spam><input type="text" id="inp_qtdCheesecakes" placeholder="Digite a quantidade de Cheesecakes">
         <spam class="valor">Valor do Cheesecakes</spam><input type="text" id="inp_valorChessecakes" placeholder="Digite o valor unitário do Cheesecakes">
         <br>
         <button onclick="verificar()">Verificar Vendas</button>
@@ -54,10 +54,10 @@
     // caso todos os valores estejam preenchidos e não sejam negativos, prossiga. Caso contrário, exiba uma mensagem de erro explicativa e encerre.
 
     var doces ={
-        Macarons: "",
-        Brigadeiros:"",
-        Cupcakes:"",
-        Cheesecakes: ""
+        Macarons: 0,
+        Brigadeiros:0,
+        Cupcakes:0,
+        Cheesecakes: 0
     }
     var valor ={
         Macarons:0,
@@ -65,14 +65,22 @@
         Cupcakes:0,
         Cheesecakes:0
     }
-  
-    var img={
+   /*  var nomeDoce ={
+        Macarons:"",
+        Brigadeiros:"",
+        Cupcakes:"",
+        Cheesecakes:""
+    } */
+    const img={
         Macarons: ` <img src="https://images.pexels.com/photos/239578/pexels-photo-239578.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">`,
         Brigadeiros:` <img src="https://images.pexels.com/photos/14493627/pexels-photo-14493627.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">`,
         Cupcakes:` <img src="https://images.pexels.com/photos/1591481/pexels-photo-1591481.jpeg?auto=compress&cs=tinysrgb&w=600" alt=""> `,
         Cheesecakes: ` <img src="https://images.pexels.com/photos/3185509/pexels-photo-3185509.png?auto=compress&cs=tinysrgb&w=600" alt="">`
     }
+
     var totalDoces = 0;
+
+
     function adcionarDados() {
         doces.Macarons = Number(inp_qtdMacarons.value);
         doces.Brigadeiros = Number(inp_qtdBrigadeiro.value);
@@ -83,10 +91,19 @@
         valor.Brigadeiros = Number(inp_valorBrigadeiro.value);
         valor.Cupcakes = Number(inp_valorCupcake.value);
         valor.Cheesecakes = Number(inp_valorChessecakes.value);
+        //*****************************************************
+     /*    nomeDoce.Macarons = inp_macarons.value;
+        nomeDoce.Brigadeiros = inp_brigadeiro.value;
+        nomeDoce.Cupcakes = inp_cupcake.value;
+        nomeDoce.Cheesecakes = inp_cheesecakes.value; */
+        //*****************************************************
+        totalDoces = doces.Macarons + doces.Brigadeiros + doces.Cupcakes + doces.Cheesecakes;
+      /*   totalMacarons = totalDoces - doces.Brigadeiros - doces.Cupcakes - doces.Cheesecakes; */
        
     }
     function verificar() {
         adcionarDados();
+        //******************************************************
         if(doces.Macarons < 0 || doces.Cupcakes < 0 || doces.Brigadeiros < 0 || doces.Cheesecakes < 0
         || doces.Macarons == "" || doces.Cupcakes == "" || doces.Brigadeiros == "" || doces.Cheesecakes == ""
         || valor.Macarons < 0 || valor.Brigadeiros < 0 || valor.Cupcakes < 0 || valor.Cheesecakes < 0
@@ -97,13 +114,37 @@
             extrato();
         }
     }
-    totalDoces = Number(doces.Macarons + doces.Brigadeiros + doces.Cupcakes + doces.Cheesecakes);
+
+  
+
     var i =1;
     function extrato() {
         /*d) De acordo com a quantidade de cada produto informado, exiba um extrato contendo: 
-
         "NÚMERO DA VENDA   -   IMAGEM DO DOCE   -   R$ VALOR UNITÁRIO"*/
-      
+        while (i<=totalDoces) {
+          
+            if (i <= doces.Macarons) {
+                resul.innerHTML += `<br> ${i} - ${img.Macarons} - R$: ${valor.Macarons.toFixed(2)}`; 
+                doces.Macarons--;
+            }
+            else if (i <= doces.Brigadeiros) {
+                resul.innerHTML += `<br> ${i} - ${img.Brigadeiros} - R$: ${valor.Brigadeiros.toFixed(2)}`; 
+                doces.Brigadeiros --;
+            }
+           /*  if (totalMacarons) {
+                resul.innerHTML += `<br> ${i} - ${img.Macarons} - R$: ${valor.Macarons.toFixed(2)}`; 
+            }
+            if (total = totalDoces - doces.Macarons - doces.Cupcakes - doces.Cheesecakes) {
+                resul.innerHTML += `<br> ${i} - ${img.Brigadeiros} - R$: ${valor.Brigadeiros.toFixed(2)}`; 
+            }
+            if(total = totalDoces - doces.Brigadeiros - doces.Macarons - doces.Cheesecakes){
+                resul.innerHTML += `<br> ${i} - ${img.Cupcakes} - R$: ${valor.Cupcakes.toFixed(2)}`; 
+            }if(total = totalDoces - doces.Brigadeiros - doces.Macarons - doces.Cupcakes){
+                 resul.innerHTML += `<br> ${i} - ${img.Cupcakes} - R$: ${valor.Cupcakes.toFixed(2)}`; 
+            } */
+            i++
+            
+        }
         alert("Função extrato");
 
     }

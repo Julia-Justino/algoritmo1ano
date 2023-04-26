@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        input{
+            width: 30vw;
+            
+        }
+        spam.valor{
+            margin-left: 3%;
+        }
+    </style>
+    <title>Doceria</title>
+</head>
+
+<body>
+    <!--
+        Macarons:
+        Brigadeiros:
+        Cupcakes:
+        Cheesecakes: 
+    -->
+    <!--
+        a) Solicite a quantidade de cada doce a ser vendido (Macarons, Brigadeiros Gourmets, Cupcakes e Cheesecakes).
+        b) Solicite o preço da unidade de cada tipo de doce.
+        c) Ao clicar no botão "Verificar Vendas", caso todos os valores estejam preenchidos e não sejam negativos, prossiga. Caso contrário, exiba uma mensagem de erro explicativa e encerre.
+    -->
+    <h1>Doceria</h1>
+    <div id="form">
+        <spam>Macarons: </spam><input type="text" id="inp_qtdMacarons" placeholder="Digite a quantidade de macarons">
+        <spam class="valor">Valor do Macarons</spam><input type="text" id="inp_valorMacarons" placeholder="Digite o valor unitário do macaron">
+        <br>
+        <spam>Brigadeiros: </spam><input type="text" id="inp_qtdBrigadeiro" placeholder="Digite a quantidade de Brigadeiros">
+        <spam class="valor">Valor do Brigadeiro</spam><input type="text" id="inp_valorBrigadeiro" placeholder="Digite o valor unitário do Brigadeiro.">
+        <br>
+        <spam>Cupcakes:</spam><input type="text" id="inp_qtdCupcake" placeholder="Digite a quantidade de Cupcakes">
+        <spam class="valor">Valor do Cupcake</spam><input type="text" id="inp_valorCupcake" placeholder="Digite o valor unitário do Cupcake.">
+        <br>
+        <spam>Cheesecakes: </spam><input type="text" id="inp_qtdCheesecakes" placeholder="Digite a quantidade de Cheesecakes">
+        <spam class="valor">Valor do Cheesecakes</spam><input type="text" id="inp_valorChessecakes" placeholder="Digite o valor unitário do Cheesecakes">
+        <br>
+        <button onclick="verificar()">Verificar Vendas</button>
+    </div>
+    <div id="resul"></div>
+    
+</body>
+
+</html>
+<script>
+    // caso todos os valores estejam preenchidos e não sejam negativos, prossiga. Caso contrário, exiba uma mensagem de erro explicativa e encerre.
+
+    var doces ={
+        Macarons: "",
+        Brigadeiros:"",
+        Cupcakes:"",
+        Cheesecakes: ""
+    }
+    var valor ={
+        Macarons:0,
+        Brigadeiros:0,
+        Cupcakes:0,
+        Cheesecakes:0
+    }
+  
+    var img={
+        Macarons: ` <img src="https://images.pexels.com/photos/239578/pexels-photo-239578.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">`,
+        Brigadeiros:` <img src="https://images.pexels.com/photos/14493627/pexels-photo-14493627.jpeg?auto=compress&cs=tinysrgb&w=600" alt="">`,
+        Cupcakes:` <img src="https://images.pexels.com/photos/1591481/pexels-photo-1591481.jpeg?auto=compress&cs=tinysrgb&w=600" alt=""> `,
+        Cheesecakes: ` <img src="https://images.pexels.com/photos/3185509/pexels-photo-3185509.png?auto=compress&cs=tinysrgb&w=600" alt="">`
+    }
+    var totalDoces = 0;
+    function adcionarDados() {
+        doces.Macarons = Number(inp_qtdMacarons.value);
+        doces.Brigadeiros = Number(inp_qtdBrigadeiro.value);
+        doces.Cupcakes = Number(inp_qtdCupcake.value);
+        doces.Cheesecakes = Number(inp_qtdCheesecakes.value);
+        // ***************************************************
+        valor.Macarons = Number(inp_valorMacarons.value);
+        valor.Brigadeiros = Number(inp_valorBrigadeiro.value);
+        valor.Cupcakes = Number(inp_valorCupcake.value);
+        valor.Cheesecakes = Number(inp_valorChessecakes.value);
+       
+    }
+    function verificar() {
+        adcionarDados();
+        if(doces.Macarons < 0 || doces.Cupcakes < 0 || doces.Brigadeiros < 0 || doces.Cheesecakes < 0
+        || doces.Macarons == "" || doces.Cupcakes == "" || doces.Brigadeiros == "" || doces.Cheesecakes == ""
+        || valor.Macarons < 0 || valor.Brigadeiros < 0 || valor.Cupcakes < 0 || valor.Cheesecakes < 0
+        || valor.Macarons == "" || valor.Brigadeiros == "" || valor.Cupcakes == "" || valor.Cheesecakes == ""
+        ){
+            resul.innerHTML = "Os dados não estão preenchidos corretamente. Preencha corretamente para continuar";
+        }else{
+            extrato();
+        }
+    }
+    totalDoces = Number(doces.Macarons + doces.Brigadeiros + doces.Cupcakes + doces.Cheesecakes);
+    var i =1;
+    function extrato() {
+        /*d) De acordo com a quantidade de cada produto informado, exiba um extrato contendo: 
+
+        "NÚMERO DA VENDA   -   IMAGEM DO DOCE   -   R$ VALOR UNITÁRIO"*/
+      
+        alert("Função extrato");
+
+    }
+</script>

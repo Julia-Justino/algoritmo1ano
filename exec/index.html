@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="times()">Sortear time</button>
+    <div id="resul"></div>
+</body>
+</html>
+<script>
+    function times(){
+        var time = Math.random();
+        ((time*3)+1).toFixed();
+        
+  
+
+        if(time >= 1){
+            resul.innerHTML = `<img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fa.espncdn.com%2Fcombiner%2Fi%3Fimg%3D%2Fi%2Fteamlogos%2Fsoccer%2F500%2F2026.png&tbnid=0Q0wRarATAcGjM&vet=12ahUKEwjLnpOBlev-AhUiBLkGHee_A3cQMygFegUIARDYAQ..i&imgrefurl=https%3A%2F%2Fwww.espn.com.br%2Ffutebol%2Ftime%2F_%2Fid%2F2026%2Fsao-paulo&docid=62WB62GXnoaUnM&w=500&h=500&q=times%20de%20s%C3%A3o%20paulo&ved=2ahUKEwjLnpOBlev-AhUiBLkGHee_A3cQMygFegUIARDYAQ" alt="">`;
+        }else if(time >= 2){
+            resul.innerHTML = `<img src="https://www.google.com/search?q=Sociedade+Esportiva+Palmeiras&sa=X&hl=pt-BR&bih=592&biw=1366&stick=H4sIAAAAAAAAAONgFuLUz9U3MMxIMbVQgjAtc8qTtJSyk630c_KTE0sy8_PgDKvigvyikmKFktTE3OJHjCHcAi9_3BOW8p605uQ1RlcuIjQJiXOxueaVZJZUCvFKcXMhLLdi0mCqYuJg4FnEKhucn5yZmpKYkqrgCtabWZaoEJCYk5uaWZRYPIGNEQCKuCHxtgAAAA&cs=0&sxsrf=APwXEdfsuxrdEfwSKXenBXlCmu5hYoBrzA:1683736044538&tbm=isch&source=iu&ictx=1&vet=1&fir=gvr3NDMWSNsPAM%252CtzIuiXzxdI6QxM%252C%252Fm%252F019lwb%253B5y1nHoSQ3TzYnM%252CmmTOHSBVUqknhM%252C_%253BEACSAE2LCmLE6M%252CS2NBwgFEGIsSbM%252C_%253Bd8Da1j-cFH6H9M%252CMwgKqsMx-7cAJM%252C_%253BYqliukeL4TKnqM%252C5gq0PZgS7iclAM%252C_&usg=AI4_-kShmJGkEaHGveHHOVbP7NkD7fSOVw&ved=2ahUKEwj_3tHGlev-AhW5rJUCHSFAAlYQ_B16BAhQEAE#imgrc=gvr3NDMWSNsPAM" alt="">`;
+        }else if(time >= 3){
+            resul.innerHTML = `<img src = "https://www.google.com/search?q=Santos+Futebol+Clube&sa=X&hl=pt-BR&bih=592&biw=1366&stick=H4sIAAAAAAAAAONgFuLUz9U3MMxIMbVQgjAtcypytZSyk630c_KTE0sy8_PgDKvigvyikmKFktTE3OJHjCHcAi9_3BOW8p605uQ1RlcuIjQJiXOxueaVZJZUCvFKcXMhLLdi0mCqYuJg4FnEKhKcmFeSX6zgVlqSmpSfo-CcU5qUOoGNEQAvW8BPrQAAAA&cs=0&sxsrf=APwXEdd4oOlxpkgjNmT2XjD8VhIItB2cag:1683736135996&tbm=isch&source=iu&ictx=1&vet=1&fir=eXuMl3OAghoFdM%252C558OQDz0CR7dNM%252C%252Fm%252F019lxm%253Be3wFc4FSWYan2M%252CLLzYm3dyBhOERM%252C_%253B6JPPJpPQK6CexM%252CvooNvUxZgSB_TM%252C_%253BnKKoSclFtVFJ_M%252CvooNvUxZgSB_TM%252C_%253BcJ3W_7Uo__vtsM%252CM_2BM3j_k_FYwM%252C_%253B2Phh1KbcfEBisM%252CLLzYm3dyBhOERM%252C_%253BtgDvDw1Am2bOKM%252CdVxLclKkLV9A1M%252C_&usg=AI4_-kTZNBbusXqy_sHyGtr-rY3LYtaa3w&ved=2ahUKEwiu-5_ylev-AhVSpZUCHRF_AeQQ_B16BAhDEAE#imgrc=eXuMl3OAghoFdM">`;
+        }
+        else if(time >= 4){
+            resul.innerHTML = `<img src = "https://www.google.com/search?q=Corinthians&sa=X&hl=pt-BR&bih=592&biw=1366&stick=H4sIAAAAAAAAAONgFuLUz9U3MMxIMbVQgjAtc8rKtJSyk630c_KTE0sy8_PgDKvigvyikmKFktTE3OJHjCHcAi9_3BOW8p605uQ1RlcuIjQJiXOxueaVZJZUCvFKcXMhLLdi0mCqYuJg4FnEyu2cX5SZV5KRmZhXPIGNEQCQkSJwpAAAAA&cs=0&sxsrf=APwXEdeu8Pa7zQTva-U5HgrBUQM5ShCcHg:1683736147896&tbm=isch&source=iu&ictx=1&vet=1&fir=G03IGWKs57dXTM%252C1nIjqsBdoxuXnM%252C%252Fm%252F019lvv%253Bp2woQi678bpRLM%252C8fqaxVrFTx9_5M%252C_%253BhCqZ1ZF_LfSgdM%252CvDiyvop2Pxe65M%252C_%253BB0o6NNdDOffSyM%252C2TVV6cXtFE9cfM%252C_%253BbHXaYDVHzulMuM%252C9RgnRC5vIe3c3M%252C_%253BYxC-xtay8Yz76M%252C-DeWJ1y2rnqd3M%252C_%253BuBpXRd_8Bj83nM%252CxXwdASdXbm-QRM%252C_&usg=AI4_-kS_mjPMQSzdWwUIqg-4OuTl6NvwRQ&ved=2ahUKEwiLmvb3lev-AhXTjZUCHdN7Dt0Q_B16BAg_EAE#imgrc=G03IGWKs57dXTM">`;
+        }
+    }
+</script>

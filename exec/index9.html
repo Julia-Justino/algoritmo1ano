@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09</title>
+   
+</head>
+<body>
+    <div id="form">
+        <h1>Cadastro</h1>
+        <button onclick="gerarNotas()">Gerar nota</button>
+        <div id="notaResul"></div>
+        <br>
+        <button onclick="frequencia()">Gerer frequência</button>
+        <div id="freqResul"></div>
+        <hr>
+        <button onclick="aprovado()">Aprovado?</button>
+    </div>
+</body>
+</html>
+<script>
+  
+    var nota = 0;
+    var freq = 0;
+  function gerarNotas() {
+    nota = (Math.random()*7 )+3;
+    notaResul.innerHTML = `Nota: ${nota.toFixed(1)}<br>`;
+  }
+  function frequencia() {
+    freq = (Math.random()*50+50);
+    freqResul.innerHTML = `Frequência: ${freq.toFixed(1)}<br>`;
+  }
+  function aprovado() {
+    alert(`Esse aluno tem a frequência de: ${freq.toFixed(1)}, com a nota: ${nota.toFixed(1)}`);
+  }
+    
+</script>
